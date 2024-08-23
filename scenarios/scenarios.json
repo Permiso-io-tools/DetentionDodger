@@ -1,0 +1,90 @@
+{
+    "AssumeRole": [
+        "sts:AssumeRole"
+    ],
+
+    "DynamoDB-Update-Table": [
+        "dynamodb:PutItem",
+        "dynamodb:CreateTable"
+    ],
+    "Lambda-Update-Library": [
+        "lambda:UpdateFunctionConfiguration",
+        "lambda:InvokeFunction"
+    ],
+
+    "Lambda-Get-Function": [
+        "lambda:GetFunction"
+    ],
+
+    "Lambda-Function-Invocation": [
+        "lambda:InvokeFunction"
+    ],
+
+    "Lambda-Trigger-Function-by-Other-Service": [
+        "lambda:CreateEventSourceMapping"
+    ],
+
+    "Glue": [
+        "glue:UpdateDevEndpoint"
+    ],
+
+    "CloudFormation-Full-Access": [
+        "cloudformation:*"
+    ],
+    "DataPipeline-UpdatePipelineDefinition": [
+        "datapipeline:PutPipelineDefinition"
+    ],
+
+    "Codestar-Add-Team-Member": [
+        "codestar:AssociateTeamMember"
+    ],
+
+    "Sagemaker-Get-Access-Using-Presigned-Notebook-URL": [
+        "sagemaker:CreatePresignedNotebookInstanceUrl"
+    ],
+
+    "Bucket-Ransomware": [
+        "s3:ListObjects",
+        "s3:GetObject",
+        "s3:PutBucketVersioning",
+        "s3:PutBucketEncryption",
+        "s3:PutObject"
+    ],
+    "KMS-Full-Access": [
+        "kms:*"
+    ],
+
+    "Access-SM-Secrets": [
+        "secretsmanager:GetSecretValue",
+        "secretsmanager:ListSecrets",
+        "secretsmanager:UpdateSecret",
+        "secretsmanager:DeleteSecret"
+    ],
+    "User-Data-Modification": [
+        "ec2:StopInstances",
+        "ec2:ModifyInstanceAttribute"
+    ],
+    "EC2-Delete-Instance": [
+        "ec2:TerminateInstance"
+    ],
+    "Lambda-Delete-Function": [
+        "lambda:DeleteFunction"
+    ],
+    "Tamper-GuardDuty": [
+        "guardduty:DeleteDetector",
+        "guardduty:DeleteIPSet",
+        "guardduty:DeleteInvitations",
+        "guardduty:DeleteMembers",
+        "guardduty:UpdateIPSet",
+        "guardduty:DisassociateFromMasterAccount",
+        "guardduty:DisassociateMembers",
+        "guardduty:DisassociateFromAdministratorAccount",
+        "guardduty:UpdateDetector"
+    ],
+
+    "Tamper-Logging": [
+        "cloudtrail:StopLogging",
+        "cloudtrail:DeleteTrail",
+        "cloudtrail:LookupEvents"
+    ]
+}
