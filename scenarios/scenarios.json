@@ -1,18 +1,64 @@
 {
-    "AssumeRole": [
-        "sts:AssumeRole"
+    "AssumeRole with all methods": [
+        "sts:AssumeRole*"
+    ],
+
+    "Get Console Access Using Federation Tokens": [
+        "sts:GetFederationToken"
+    ],
+
+    "IAM Simulate Policy": [
+        "iam:SimulateCustomPolicy",
+        "iam:SimulatePrincipalPolicy"
+    ],
+
+    "IAM Read all": [
+        "iam:Simulate*",
+        "iam:List*",
+        "iam:Get*"
     ],
 
     "DynamoDB-Update-Table": [
         "dynamodb:PutItem",
         "dynamodb:CreateTable"
     ],
+    "EC2-Instance-Profile-Update-Role": [
+        "iam:ListRoles",
+        "iam:GetRole",
+        "iam:RemoveRoleFromInstanceProfile",
+        "iam:AddRoleToInstanceProfile",
+        "ec2:StopInstance"
+    ],
+
+    "Tag-GetResources": [
+        "tag:GetResources"
+    ],
+
+    "SM-Download-Credentials": [
+        "sm:GetSecretValue"
+    ],
+
+    "SSM-Read-All": [
+        "ssm:List*",
+        "ssm:Get*",
+        "ssm:Describe*"
+    ],
+
+    "SSM-Send-Command": [
+        "ssm:SendCommand"
+    ],
+
+    "SSM-Start-Session": [
+        "ssm:StartSession"
+    ],
+
     "Lambda-Update-Library": [
         "lambda:UpdateFunctionConfiguration",
         "lambda:InvokeFunction"
     ],
 
     "Lambda-Get-Function": [
+        "lambda:ListFunctions",
         "lambda:GetFunction"
     ],
 
@@ -84,7 +130,6 @@
 
     "Tamper-Logging": [
         "cloudtrail:StopLogging",
-        "cloudtrail:DeleteTrail",
-        "cloudtrail:LookupEvents"
+        "cloudtrail:DeleteTrail"
     ]
 }

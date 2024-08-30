@@ -14,16 +14,18 @@ class TablePrint():
         statuslength = 0
         allowlength = 0
         denylength = 0
-        csvdata = []
-        returndata = [["Scenario", "Status", "Allowed", "Denied"]]
-
+        returndict  =[]
         for scenarioname, scenariostatus in queryResult.items():
             fieldNames = {"Scenario": "", "Status": "", "Allowed": "", "Denied": ""}
+            csvdata = {"Scenario": "", "Status": "", "Allowed": "", "Denied": ""}
 
             fieldNames['Scenario'] = scenarioname
-            csvdata.append(scenarioname)
+            csvdata['Scenario'] = scenarioname
+
             if len(scenarioname) > scenariolength:
                 scenariolength = len(scenarioname)
+
+            csvdata["Status"] = scenariostatus['status']
 
             if scenariostatus['status'] == "allowed":
                 fieldNames["Status"] = colored(scenariostatus['status'], "green")
@@ -31,8 +33,6 @@ class TablePrint():
                 fieldNames["Status"] = colored(scenariostatus['status'], "red")
             if scenariostatus['status'] == "partially":
                 fieldNames["Status"] = colored(scenariostatus['status'], "yellow")
-
-            csvdata.append(scenariostatus['status'])
 
             if len(scenariostatus['status']) > statuslength:
                 statuslength = len(scenariostatus['status'])
@@ -45,7 +45,8 @@ class TablePrint():
 
                 allowessc += scallow + "\n"
             fieldNames['Allowed'] = allowessc
-            csvdata.append(allowessc)
+            csvdata['Allowed'] = allowessc
+
 
             denessc = ""
             for scden in scenariostatus['denied']:
@@ -53,10 +54,10 @@ class TablePrint():
                     denylength = len(scden)
                 denessc += scden + "\n"
             fieldNames['Denied'] = denessc
-            csvdata.append(denessc)
+            csvdata['Denied'] = denessc
 
             allfields.append(fieldNames)
-            returndata.append(csvdata)
+            returndict.append(csvdata)
 
         if len(fieldNames) == 1:
             printOutput(
@@ -88,4 +89,4 @@ class TablePrint():
             print(table)
         printOutput('-' * (os.get_terminal_size().columns - 10), "success")
 
-        return returndata
+        return returndict

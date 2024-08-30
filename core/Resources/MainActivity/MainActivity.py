@@ -60,5 +60,4 @@ class MainActivity:
                 evaluationResponse = self.bypassCheckObj.find_permissions_in_policy(policyDocumentList=stringPolicies, permissionBoundaryList=userPermissionBoundary, SCENARIOS=SCENARIOS)
                 tablePrintObj = TablePrint()
                 userfields = tablePrintObj.tableprint(evaluationResponse)
-
                 dumpCSV(userfields, self.accountID, user)
