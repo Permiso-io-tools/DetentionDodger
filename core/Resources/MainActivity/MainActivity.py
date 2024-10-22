@@ -11,8 +11,13 @@ class MainActivity:
         self.cloudTrailObj = FindQuarantineAttachment(profile=profile)
         self.accountID = accountID
         self.user = user
-    def main_activity(self):
-        with open("scenarios/scenarios.json") as scenariosfile:
+    def main_activity(self, checkall):
+        if checkall:
+            scenariofile = "scenarios/allservices.json"
+        else:
+            scenariofile = "scenarios/scenarios.json"
+
+        with open(scenariofile) as scenariosfile:
             SCENARIOS = json.load(scenariosfile)
 
         if self.user is None:
@@ -57,7 +62,7 @@ class MainActivity:
                 stringPolicies = []
                 for policy in policyDefinition['Policies']:
                     stringPolicies.append(json.dumps(policy))
-                evaluationResponse = self.bypassCheckObj.find_permissions_in_policy(policyDocumentList=stringPolicies, permissionBoundaryList=userPermissionBoundary, SCENARIOS=SCENARIOS)
+                evaluationResponse = self.bypassCheckObj.find_permissions_in_policy(policyDocumentList=stringPolicies, permissionBoundaryList=userPermissionBoundary, SCENARIOS=SCENARIOS, checkall=checkall)
                 tablePrintObj = TablePrint()
                 userfields = tablePrintObj.tableprint(evaluationResponse)
-                dumpCSV(userfields, self.accountID, user)
+                dumpCSV(userfields, self.accountID, user, checkall)

@@ -127,9 +127,12 @@ class BypassCheck:
 
     def get_group_inline_policies(self, group):
         printOutput(f"Listing Inline Policies for group {group['GroupName']}", "loading")
+        policydocs = []
         try:
             policies = self.client.list_group_policies(GroupName=group['GroupName'])['PolicyNames']
             printOutput(f"Found {str(len(policies))} inline policies to {group['GroupName']}", "success")
+            for policy in policies:
+                policydocs.append(self.client.get_group_policy(GroupName=group['GroupName'], PolicyName=policy)['PolicyDocument'])
             return policies
         except Exception as e:
             printOutput(f"Error listing Inline policies for group {group['GroupName']}: {str(e)}", "failure")
@@ -173,7 +176,7 @@ class BypassCheck:
             printOutput(f"Error analyzing policy: {str(e)}", "failure")
             return None
 
-    def find_permissions_in_policy(self, policyDocumentList, SCENARIOS, permissionBoundaryList):
+    def find_permissions_in_policy(self, policyDocumentList, SCENARIOS, permissionBoundaryList, checkall):
         returnDict = {}
         for name, scenario in SCENARIOS.items():
             returnDict[name] = {
@@ -204,6 +207,8 @@ class BypassCheck:
                 if len(returnDict[name]['denied'] ) > 0 and len(returnDict[name]['allowed']) > 0:
                     returnDict[name]['status'] = f"partially"
                 elif len(returnDict[name]['denied']) == 0:
+                    if checkall:
+                        returnDict[name]['allowed'] = [f"{name}:*"]
                     returnDict[name][
                         'status'] = f"allowed"
                 else:

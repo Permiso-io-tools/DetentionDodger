@@ -38,5 +38,5 @@ if not os.path.exists(f'./output/{accountid}'):
     os.mkdir(f"./output/{accountid}")
 
 mainactivity = MainActivity(profile=profile, accountID=accountid, user=user)
-mainactivity.main_activity()
+mainactivity.main_activity(checkall=args.check_all_privileges)
 

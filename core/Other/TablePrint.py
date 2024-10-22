@@ -1,4 +1,5 @@
 import json
+from pydoc import pipepager
 
 from core.Other.PrintOutput.PrintOutput import printOutput
 import os
@@ -11,7 +12,7 @@ class TablePrint():
         fieldNames = None
 
         scenariolength = 0
-        statuslength = 0
+        statuslength = 13
         allowlength = 0
         denylength = 0
         returndict  =[]
@@ -34,8 +35,8 @@ class TablePrint():
             if scenariostatus['status'] == "partially":
                 fieldNames["Status"] = colored(scenariostatus['status'], "yellow")
 
-            if len(scenariostatus['status']) > statuslength:
-                statuslength = len(scenariostatus['status'])
+            #if len(scenariostatus['status']) > statuslength:
+            #    statuslength = len(scenariostatus['status'])
 
 
             allowessc = ""
@@ -86,7 +87,8 @@ class TablePrint():
                 rows.append(row.values())
 
             #print(tabulate(rows, headers=list(fieldNames.keys()), tablefmt="outline"))
-            print(table)
+            #print(table)
+            pipepager(table.get_string(), cmd='less -FR')
         printOutput('-' * (os.get_terminal_size().columns - 10), "success")
 
         return returndict

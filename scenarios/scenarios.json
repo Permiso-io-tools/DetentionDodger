@@ -1,21 +1,13 @@
 {
     "AssumeRole with all methods": [
-        "sts:AssumeRole*"
-    ],
-
-    "Get Console Access Using Federation Tokens": [
-        "sts:GetFederationToken"
+        "sts:AssumeRole",
+        "sts:AssumeRoleWithSAML",
+        "sts:AssumeRoleWithWebIdentity"
     ],
 
     "IAM Simulate Policy": [
         "iam:SimulateCustomPolicy",
         "iam:SimulatePrincipalPolicy"
-    ],
-
-    "IAM Read all": [
-        "iam:Simulate*",
-        "iam:List*",
-        "iam:Get*"
     ],
 
     "DynamoDB-Update-Table": [
@@ -35,13 +27,8 @@
     ],
 
     "SM-Download-Credentials": [
+        "sm:ListSecrets",
         "sm:GetSecretValue"
-    ],
-
-    "SSM-Read-All": [
-        "ssm:List*",
-        "ssm:Get*",
-        "ssm:Describe*"
     ],
 
     "SSM-Send-Command": [
@@ -91,13 +78,12 @@
 
     "Bucket-Ransomware": [
         "s3:ListObjects",
-        "s3:GetObject",
         "s3:PutBucketVersioning",
         "s3:PutBucketEncryption",
         "s3:PutObject"
     ],
-    "KMS-Full-Access": [
-        "kms:*"
+    "KMS-Update-Key-Policy": [
+        "kms:PutKeyPolicy"
     ],
 
     "Access-SM-Secrets": [
@@ -127,9 +113,17 @@
         "guardduty:DisassociateFromAdministratorAccount",
         "guardduty:UpdateDetector"
     ],
-
     "Tamper-Logging": [
         "cloudtrail:StopLogging",
         "cloudtrail:DeleteTrail"
+    ],
+    "LLM-Injection": [
+        "bedrock:ListFoundationModelAgreementOffers",
+        "bedrock:GetFoundationModelAvailability",
+        "bedrock:ListInferenceProfiles",
+        "bedrock:ListFoundationModels",
+        "bedrock:GetModelInvocationLoggingConfiguration",
+        "bedrock:PutUseCaseForModelAccess",
+        "bedrock:GetUseCaseForModelAccess"
     ]
 }

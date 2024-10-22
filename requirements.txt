@@ -3,3 +3,4 @@ termcolor
 prettytable
 argparse
 tabulate
+pydoc
