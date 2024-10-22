@@ -1,8 +1,7 @@
 # YetiHunter
 ![image](.img/detentiondodger.png)
 
-DetentionDodger is a tool designed to find users whose credentials have been leaked/compromised and the impact they have on the target\
-**Release Blog:** [[Introducing YetiHunter an open-source tool to detect and hunt for suspicious activity in snowflake](https://permiso.io/blog/introducing-yetihunter-an-open-source-tool-to-detect-and-hunt-for-suspicious-activity-in-snowflake)]
+DetentionDodger is a tool designed to find users whose credentials have been leaked/compromised and the impact they have on the target
 ````
 
                                                                                           .-'''-.
