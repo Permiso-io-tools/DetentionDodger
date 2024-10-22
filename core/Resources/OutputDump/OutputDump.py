@@ -14,6 +14,7 @@ def dumpCSV(result, outputdir, username, checkall):
     #writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
     for row in result:
         csvfile.writerow(row.values())
+
     #writer.writeheader()
     #del (result[0])
     printOutput(f"Outputfile {csvfilename} successfully created", "success")

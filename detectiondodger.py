@@ -34,6 +34,9 @@ if accountid is None:
     printOutput(f"Error with credentials provided", "error")
     exit()
 
+if not os.path.exists(f'./output'):
+    os.mkdir(f"./output")
+
 if not os.path.exists(f'./output/{accountid}'):
     os.mkdir(f"./output/{accountid}")
 

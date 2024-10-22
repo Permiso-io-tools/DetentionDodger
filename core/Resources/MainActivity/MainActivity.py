@@ -63,6 +63,8 @@ class MainActivity:
                 for policy in policyDefinition['Policies']:
                     stringPolicies.append(json.dumps(policy))
                 evaluationResponse = self.bypassCheckObj.find_permissions_in_policy(policyDocumentList=stringPolicies, permissionBoundaryList=userPermissionBoundary, SCENARIOS=SCENARIOS, checkall=checkall)
+
                 tablePrintObj = TablePrint()
                 userfields = tablePrintObj.tableprint(evaluationResponse)
                 dumpCSV(userfields, self.accountID, user, checkall)
+

@@ -6,7 +6,7 @@ COPY . .
 ADD ./output /detectiondodger/output
 ADD ./scenarios /detectiondodger/scenarios
 
-RUN apt update && apt install python3-pip -y
+RUN apt update && apt install python3-pip less -y
 RUN python3 -m pip install -r requirements.txt
 
 ENTRYPOINT ["python3", "detectiondodger.py"]
