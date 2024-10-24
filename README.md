@@ -1,4 +1,4 @@
-# YetiHunter
+# DetentionDodger
 ![image](.img/detentiondodger.png)
 
 DetentionDodger is a tool designed to find users whose credentials have been leaked/compromised and the impact they have on the target
