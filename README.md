@@ -1,4 +1,4 @@
-# YetiHunter
+# DetentionDodger
 ![image](.img/detentiondodger.png)
 
 Associated Blog: [Breaking free from the chains of fate - Bypassing AWSCompromisedKeyQuarantineV2 Policy](https://permiso.io/blog/introducing-detention-dodger)\
