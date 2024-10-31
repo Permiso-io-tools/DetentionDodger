@@ -1,6 +1,14 @@
 # YetiHunter
 ![image](.img/detentiondodger.png)
 
+Associated Blog: [Breaking free from the chains of fate - Bypassing AWSCompromisedKeyQuarantineV2 Policy](https://permiso.io/blog/introducing-detention-dodger)\
+\
+Conferences Where the tool was presented:
+- **SecTor Arsenal 2024** (https://www.blackhat.com/sector/2024/arsenal/schedule/index.html#detentiondodger-finding-rusted-links-on-the-chains-of-fate-43392)
+- **SANS Pentest Hackfest Hollywood 2024** (https://www.sans.org/cyber-security-training-events/hackfest-summit-2024/)
+
+----------------------------------------------------------------------------------
+
 DetentionDodger is a tool designed to find users whose credentials have been leaked/compromised and the impact they have on the target
 ````
 
