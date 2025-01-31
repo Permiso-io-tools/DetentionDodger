@@ -49,7 +49,7 @@ python3 -m venv ./venv
 source venv/bin/activate
 python3 -m pip install -r requirements.txt
 ````
-Then, just run the tool by running **detectiondodger.py**:
+Then, just run the tool by running **detentiondodger.py**:
 ````
 usage: DetentionDodger [-h] [-p PROFILE]
 
@@ -65,11 +65,11 @@ options:
 ### Docker
 A Dockerfile is placed inside the main directory of the project. To build the image, inside the main directory of the project run:
 ````
-docker build -t detectiondodger .
+docker build -t detentiondodger .
 ````
 Then run the container with directories **output** and **~/.aws** mounted to host:
 ````
-docker run -v ~/.aws:/root/.aws -v ./output:/detectiondodger/output -it detectiondodger -h
+docker run -v ~/.aws:/root/.aws -v ./output:/detentiondodger/output -it detentiondodger -h
 usage: DetentionDodger [-h] [-p PROFILE]
 
 DetentionDodger is a tool designed to find users whose credentials have been leaked/compromised and the impact they have on the target
@@ -84,7 +84,7 @@ options:
 
 ## Usage
 ### Finding all quarantied Users
-When no user is pecified using **-u** flag, the tool will list all the users and find the ones that either have the Quarantine Policy Attached or attempted to have it attached, by looking at the CloudTrail Logs. Then it will list all the policies them and their groups have and check the privileges based on the scenarios found on the scenarios directory.
+When no user is specified using **-u** flag, the tool will list all the users and find the ones that either have the Quarantine Policy Attached or attempted to have it attached, by looking at the CloudTrail Logs. Then it will list all the policies them and their groups have and check the privileges based on the scenarios found on the scenarios directory.
 ![image](.img/allusers.png)
 
 ### Checking specific user
